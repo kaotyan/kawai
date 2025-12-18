@@ -1,0 +1,178 @@
+@use "mixin" as m;
+
+// ---------------------------- single-bg ----------------------------
+
+.single-bg {
+    position: relative;
+    padding-block: 80px 40px;
+
+    @include m.tab {
+        padding-top: 180px;
+    }
+
+    @include m.sp {
+        padding-top: 144px;
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: url(../img/single-bg.jpg);
+        background-size: cover;
+        background-position: bottom;
+        z-index: -1; // 背景だけを後ろへ
+    }
+
+    article {
+        background-color: rgb(255, 255, 255, 0.8);
+        max-width: 1000px;
+        margin: auto;
+    }
+
+    section {
+        padding: 0;
+    }
+
+    .subpage-btn {
+        background-color: #fefefe;
+        padding-left: 32px;
+    }
+}
+
+
+// ---------------------------- single-article ----------------------------
+
+.single-wrapper {
+    position: relative;
+    margin-inline: 8rem;
+    padding-block: 8rem;
+
+    .single-img {
+        position: absolute;
+        width: 545px;
+        z-index: 1;
+    }
+
+    .single-title-bg {
+        position: absolute;
+        background-color: #104F59;
+        width: 1000px;
+        height: 200px;
+        top: 115px;
+        left: 50%;
+        transform: translateX(-50%);
+
+        .single-title-inner {
+            position: absolute;
+            top: 16px;
+            left: 656px;
+            color: #F5F5F5;
+
+            h1 {
+                font-size: 2.4rem;
+                margin-top: 48px;
+            }
+        }
+    }
+}
+
+.content {
+    margin-top: 422px;
+
+    p {
+        margin-bottom: 2em;
+    }
+
+    .content-img {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        margin-bottom: 5em;
+        gap: 24px;
+
+        img {
+            width: 264px;
+            height: 264px;
+            border-radius: 10px;
+        }
+    }
+}
+
+
+// ---------------------------- single-article-list ----------------------------
+
+.article-list.blog-wrapper {
+    position: relative;
+    display: flex;
+    max-width: 880px;
+    margin: 160px auto 56px;
+
+    .arrow {
+        position: absolute;
+        display: inline-block;
+        z-index: 2;
+        width: 20px;
+        height: 34px;
+        top: 50%;
+        transform: translateY(-50%);
+
+
+
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: 0;
+            width: 20px;
+            height: 5px;
+            background-color: #043139;
+        }
+
+        &.left {
+            left: 0;
+
+            &::before,
+            &::after {
+                transform-origin: left center;
+            }
+
+            &::before {
+                transform: translateY(-50%) rotate(-45deg) translateY(2px);
+            }
+
+            &::after {
+                transform: translateY(-50%) rotate(45deg) translateY(-2px);
+            }
+        }
+
+        &.right {
+            right: 0;
+
+            &::before,
+            &::after {
+                transform-origin: right center; // ★右端を回転の基点に
+            }
+
+            &::before {
+                transform: translateY(-50%) rotate(45deg) translateY(2px);
+            }
+
+            &::after {
+                transform: translateY(-50%) rotate(-45deg) translateY(-2px);
+            }
+        }
+
+    }
+
+    article::after {
+        background-color: #fefefe;
+        z-index: -1;
+    }
+}
+
+
+
+footer.blog-page {
+    margin-top: 0;
+}

@@ -1,0 +1,45 @@
+// ---------------------------- blog-page-top ----------------------------
+
+.subpage-top {
+    &.blog-page {
+        background-image: url(../img/blog-top.jpg);
+        background-position: center;
+
+        .subpage-title {
+            bottom: 2%;
+            right: 7%;
+            text-shadow: 6px 8px 7px #261C12;
+        }
+    }
+}
+
+
+// ---------------------------- blog-bg ----------------------------
+
+.blog-bg {
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image: url(../img/blog-bg.jpg);
+        background-size: 100%;
+    }
+}
+
+
+// ---------------------------- blog-article ----------------------------
+
+.blog-bg {
+    article {
+        margin-bottom: 80px;
+    }
+}
+
+
+
+// ---------------------------- blog-footer ----------------------------
+footer.blog-page {
+    margin-top: 0;
+}
