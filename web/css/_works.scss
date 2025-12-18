@@ -1,0 +1,12 @@
+// ---------------------------- works-page-top ----------------------------
+
+.subpage-top {
+    &.works-page {
+        background-image: url(../img/works-top.jpg);
+
+        .subpage-title {
+            top: 6%;
+            left: 11%;
+        }
+    }
+}
